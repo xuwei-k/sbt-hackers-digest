@@ -1,6 +1,6 @@
 package net.virtualvoid.hackersdigest
 
-import sbt._
+import sbt.{given, _}
 import Keys._
 import sbt.hackersdigest.InternalAccess
 

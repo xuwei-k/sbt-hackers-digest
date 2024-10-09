@@ -2,6 +2,17 @@ name := """sbt-hackers-digest"""
 
 sbtPlugin := true
 
+crossScalaVersions := "3.3.4"
+
+pluginCrossBuild / sbtVersion := {
+  scalaBinaryVersion.value match {
+    case "2.12" =>
+      (pluginCrossBuild / sbtVersion).value
+    case _ =>
+      "2.0.0-M2"
+  }
+}
+
 // ScalaTest
 libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % "3.2.9" % "test",
